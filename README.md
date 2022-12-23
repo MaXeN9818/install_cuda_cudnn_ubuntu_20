@@ -46,7 +46,7 @@ wget https://developer.download.nvidia.com/compute/cuda/11.4.3/local_installers/
 - After running the below command, make sure that you uncheck NVIDIA Driver option (as shown below) as we have already installed it in the previous step.
     > Info: To install a specific version of the cuda toolkits go to <https://developer.nvidia.com/cuda-toolkit-archive><br>
 
-    > Note: Some versions not officially supported ubuntu 20.04 due to lack of some prerequisites, you can override the install-time prerequisite checks by running the     installer with the flag. Remember that the prerequisites will still be required to use the NVIDIA CUDA Toolkit.-override
+    > Note: Some versions not officially supported ubuntu 20.04 due to lack of some prerequisites, you can override the install-time prerequisite checks by running the     installer with the flag. Remember that the prerequisites will still be required to use the NVIDIA CUDA Toolkit `-override`
 
     ```bash
     sudo sh cuda_11.4.3_470.82.01_linux.run
