@@ -5,8 +5,9 @@
 - First of all remove all related versions of NVIDIA driver, CUDA and cuDNN by executing the following commands.
 
 ```bash
-sudo apt-get --purge remove "*cublas*" "cuda*" "nsight*" 
-sudo apt-get --purge remove "*nvidia*"
+sudo apt-get --purge remove "*cuda*" "*cublas*" "*cufft*" "*cufile*" "*curand*" \
+ "*cusolver*" "*cusparse*" "*gds-tools*" "*npp*" "*nvjpeg*" "nsight*" "*nvvm*"
+sudo apt-get --purge remove "*nvidia*" "libxnvctrl*"
 sudo rm -rf /usr/local/cuda*
 sudo apt autoremove
 ```
@@ -23,6 +24,8 @@ sudo apt autoremove
 - After confirming the suitable version, go to this page and download appropriate driver for your GPU:
 <https://www.nvidia.com/download/index.aspx?lang=en-us><br>
     In my case, for example, I downloaded `NVIDIA-Linux-x86_64-470.82.01.run`<br>
+    > Info: To install a specific nvidia driver version go to  <https://www.nvidia.it/Download/Find.aspx?><br>
+    
     Run the following command:<br>
     ```bash
     sudo sh NVIDIA-Linux-x86_64-470.82.01.run --no-x-check
@@ -41,10 +44,15 @@ wget https://developer.download.nvidia.com/compute/cuda/11.4.3/local_installers/
 ```
 
 - After running the below command, make sure that you uncheck NVIDIA Driver option (as shown below) as we have already installed it in the previous step.
+    > Info: To install a specific version of the cuda toolkits go to <https://developer.nvidia.com/cuda-toolkit-archive><br>
 
-```bash
-sudo sh cuda_11.4.3_470.82.01_linux.run
-```
+    > Note: Some versions not officially supported ubuntu 20.04 due to lack of some prerequisites, you can override the install-time prerequisite checks by running the     installer with the flag. Remember that the prerequisites will still be required to use the NVIDIA CUDA Toolkit.-override
+
+    ```bash
+    sudo sh cuda_11.4.3_470.82.01_linux.run
+    ```
+
+    Replace `cuda_*` with the file you downloaded.
 
 <img src="media/skip_driver.png" width="auto" height="auto">
 
